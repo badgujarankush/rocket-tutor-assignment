@@ -20,9 +20,13 @@ const Register = () => {
   };
 
   const handleSubmit = async () => {
-    const res = await registerUser(payload);
-    console.log(res?.data);
-    navigate("/login");
+    try {
+      const res = await registerUser(payload);
+      console.log(res?.data);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
